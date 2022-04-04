@@ -2,7 +2,10 @@
 - This is my personal project to demonstrate a simple NodeJS app, being instantiated using ECS-Fargate via Terraform.
 - I made a custome app to go above and beyond a simple 'hello-world'.
 - I re-used a simple NodeJS app to have extra fun!
-
+- Feel free to use the varfile:
+```bash
+terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
+```
 
 
 ### Workspace file
