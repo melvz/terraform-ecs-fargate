@@ -1,5 +1,7 @@
 # terraform-ecs-fargate
 - This is my personal project to demonstrate a simple NodeJS app, being instantiated using ECS-Fargate via Terraform.
+- I made a custome app to go above and beyond a simple 'hello-world'.
+- I re-used a simple NodeJS app to have extra fun!
 
 
 
@@ -12,3 +14,14 @@
 
 
 ### ecs.tf
+- Instantiates an ECS task definition using Fargate which defines my custom container app -->  "chuarm/nodejsweatherapp1-melvin"
+- Instantiates an ECS service definition
+- Instantiates an ECS cluster definition
+
+
+### loadbalancer.tf
+- I use alb instead of regular lb.
+- target group listens to requests at port 80 with no SSL support (http only), while 'forwards' requests to container at port 8080.
+- supports Fargate target type = "ip".
+
+
