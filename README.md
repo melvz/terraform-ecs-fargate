@@ -2,6 +2,12 @@
 - This is my personal project to demonstrate a simple NodeJS app, being instantiated using ECS-Fargate via Terraform.
 - I made a custome app to go above and beyond a simple 'hello-world'.
 - I re-used a simple NodeJS app to have extra fun!
+- For exercise STEP1 -  I took the liberty to create my own custom NodeJS image, where I re-used some opensource components:
+```bash
+docker pull chuarm/nodejsweatherapp1-melvin:latest
+```
+
+- For STEP2, please see the steps below.  Cheers!
 - Feel free to use the varfile:
 ```bash
 terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
