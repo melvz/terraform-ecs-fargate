@@ -47,7 +47,7 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 
 ### Define the ECS Fargate cluster using the ecs.tf file:
 - Instantiates an ECS task definition using Fargate which defines my custom container app -->  "chuarm/nodejsweatherapp1-melvin".
-- My custom app was built using a Dockerfile that exposes port service at port 8080.
+- My custom app was built using a Dockerfile that exposes service at port 8080.
 - Instantiates an ECS service definition which points to the 'cluster' definition, the needed subnets and the loadbalancer.
 - Instantiates an ECS cluster definition.
 
