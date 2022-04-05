@@ -39,14 +39,14 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 - Im a big fan of terraform workspace to avoid any mixup of environments.  
 - But today's use case has a lone env varfile located under the "workspace" folder.  
 - File "vpc.tfvars" defines a  '/16'  cidr for the VPC to use.
-- 3 public subnets
-- 3 private subnets
+- 3 public subnets.
+- 3 private subnets.
 
 
-### Instatiate the ECS Fargate cluster using the ecs.tf file:
-- Instantiates an ECS task definition using Fargate which defines my custom container app -->  "chuarm/nodejsweatherapp1-melvin"
-- Instantiates an ECS service definition
-- Instantiates an ECS cluster definition
+### Define the ECS Fargate cluster using the ecs.tf file:
+- Instantiates an ECS task definition using Fargate which defines my custom container app -->  "chuarm/nodejsweatherapp1-melvin".
+- Instantiates an ECS service definition which points to the 'cluster' definition, the needed subnets and the loadbalancer.
+- Instantiates an ECS cluster definition.
 
 
 ### We need a loadbalancer where ECS will exist -->  loadbalancer.tf
