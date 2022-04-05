@@ -16,8 +16,8 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 
 ### Workspace file
 - Im a big fan of terraform workspace to avoid any mixup of environments.  
-- But today's use case uses a lone env varfile located under the "workspace" folder.  
-- File "vpc.tfvars" defines a /16 cidr for the VPC to use.
+- But today's use case has a lone env varfile located under the "workspace" folder.  
+- File "vpc.tfvars" defines a  '/16'  cidr for the VPC to use.
 - 3 public subnets
 - 3 private subnets
 
@@ -30,7 +30,7 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 
 ### We need a loadbalancer where ECS will exist -->  loadbalancer.tf
 - I use alb instead of regular lb.
-- target group listens to requests at port 80 with no SSL support (http only), while 'forwards' requests to container at port 8080.
-- supports Fargate target type = "ip".
+- Target group listens to requests at port 80 with no SSL support (http only), while the ALB 'forwards' requests to container at port 8080.
+- Supports Fargate target type = "ip".
 
 
