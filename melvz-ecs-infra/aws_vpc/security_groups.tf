@@ -8,7 +8,7 @@ resource "aws_security_group" "ecs_sg" {
 
   
 
-  // Allow Global HTTP Access
+  // Allow Global HTTP Access into port 80
   ingress {
     from_port   = 80
     to_port     = 80
@@ -17,6 +17,17 @@ resource "aws_security_group" "ecs_sg" {
     description = format("Global %s service HTTP port Ingress Access", var.tag_project_name)
   }
 
+
+  // Allow Global HTTP Access into port 8080
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = format("Global %s service HTTP port Ingress Access", var.tag_project_name)
+  }
+    
+    
   // Allow Global HTTPS Access
   ingress {
     from_port   = 443
