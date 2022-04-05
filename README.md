@@ -27,17 +27,17 @@ DEFINITION
 ```bash
 docker pull chuarm/nodejsweatherapp1-melvin:latest
 ```
-
 - For STEP2, please see the steps below.  Cheers!
-- Feel free to use the varfile:
-```bash
-terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
-```
 
 
 ### Workspace file
 - Im a big fan of terraform workspace to avoid any mixup of environments.  
 - But today's use case has a lone env varfile located under the "workspace" folder.  
+- Feel free to use the varfile:
+```bash
+terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
+```
+
 - File "vpc.tfvars" defines a  '/16'  cidr for the VPC to use.
 - 3 public subnets.
 - 3 private subnets.
