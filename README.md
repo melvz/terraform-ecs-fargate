@@ -43,15 +43,30 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 - 3 private subnets.
 
 
+
+### Traffic flow:
+- Inbound traffic from outside world (internet) hits the ALB (loadbalancer) at port 80 (allowed by alb_sg).
+- Traffic from ALB will hit port 8080 into the ECS/Fargate service, which sits on private subnets.  
+
+
+
+
+
 ### Define the ECS Fargate cluster using the ecs.tf file:
 - Instantiates an ECS task definition using Fargate which defines my custom container app -->  "chuarm/nodejsweatherapp1-melvin".
 - Instantiates an ECS service definition which points to the 'cluster' definition, the needed subnets and the loadbalancer.
 - Instantiates an ECS cluster definition.
 
 
+
+
 ### We need a loadbalancer where ECS will exist -->  loadbalancer.tf
 - I use alb instead of regular lb.
 - Target group listens to requests at port 80 with no SSL support (http only), while the ALB 'forwards' requests to container at port 8080.
 - Supports Fargate target type = "ip".
+
+---
+~
+
 
 
