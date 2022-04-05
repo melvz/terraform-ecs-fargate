@@ -19,8 +19,8 @@ resource "aws_ecs_task_definition" "nodejsweatherapp_melvz" {
     "networkMode": "awsvpc",
     "portMappings": [
       {
-        "containerPort": 3000,
-        "hostPort": 3000
+        "containerPort": 8080,
+        "hostPort": 80
       }
     ]
   }
@@ -57,7 +57,7 @@ resource "aws_ecs_service" "nodejsweatherapp_melvz" {
   load_balancer {
     target_group_arn = aws_alb_target_group.ecs_target_grp.id
     container_name   = "nodejsweatherapp-melvz-app"
-    container_port   = 3000
+    container_port   = 8080
   }
 
   depends_on = [aws_alb_listener.alb_listener]
