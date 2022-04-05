@@ -1,7 +1,27 @@
 # terraform-ecs-fargate
 - This is my personal project to demonstrate a simple NodeJS app, being instantiated using ECS-Fargate via Terraform.
-- I made a custome app to go above and beyond a simple 'hello-world'.
-- I re-used a simple NodeJS app to have extra fun!
+- I made a custom app to go above and beyond a simple 'hello-world'.
+- I re-used a simple NodeJS app to have extra fun!  This custom image is defined in ECS/Fargate Container Definition:
+```json
+container_definitions = <<DEFINITION
+[
+  {
+    "image": "chuarm/nodejsweatherapp1-melvin",
+    "cpu": 1024,
+    "memory": 2048,
+    "name": "nodejsweatherapp-melvz-app",
+    "networkMode": "awsvpc",
+    "portMappings": [
+      {
+        "containerPort": 3000,
+        "hostPort": 3000
+      }
+    ]
+  }
+]
+DEFINITION
+```
+
 - For exercise STEP1 -  I took the liberty to create my own custom NodeJS image, where I re-used some opensource components:
 ```bash
 docker pull chuarm/nodejsweatherapp1-melvin:latest
