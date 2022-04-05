@@ -20,6 +20,7 @@ container_definitions = <<DEFINITION
   }
 ]
 DEFINITION
+//Thanks to my source:  https://github.com/bmorelli25/simple-nodejs-weather-app  
 ```
 
 - For exercise STEP1 -  I took the liberty to create my own custom NodeJS image, where I re-used some opensource components:
