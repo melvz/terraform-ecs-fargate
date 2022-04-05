@@ -1,6 +1,6 @@
 resource "aws_alb" "web_alb" {
   name = "web-alb"
-  security_groups = [aws_security_group.ecs_sg.id]
+  security_groups = [aws_security_group.alb_sg.id]
   subnets = module.vpc.private_subnets
 
   #cross_zone_load_balancing   = true
