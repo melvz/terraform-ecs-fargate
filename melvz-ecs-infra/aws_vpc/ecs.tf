@@ -51,6 +51,7 @@ resource "aws_ecs_service" "nodejsweatherapp_melvz" {
   network_configuration {
     security_groups = [aws_security_group.ecs_sg.id]
     subnets = module.vpc.private_subnets
+    #subnets         = aws_subnet.private.*.id
   }
 
   load_balancer {
