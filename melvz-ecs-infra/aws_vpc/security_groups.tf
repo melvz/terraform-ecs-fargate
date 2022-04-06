@@ -47,7 +47,7 @@ resource "aws_security_group" "ecs_sg" {
 # Security Group for the LoadBalancer
 ################################################################################
 resource "aws_security_group" "alb_sg" {
-  name        = format("trivutmarketplace-%s-ecs-sg", var.tag_project_name)
+  name        = format("melvin-%s-ecs-sg", var.tag_project_name)
   description = format("Security group for the %s ECS nodes", var.tag_project_name)
   vpc_id      = module.vpc.vpc_id
 
