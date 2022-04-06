@@ -6,7 +6,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.64.0"
 
-  name = format("trivutmarketplace-%s-vpc", terraform.workspace)
+  name = format("melvin-ecs-%s-vpc", terraform.workspace)
   cidr = var.vpc_cidr
   azs  = var.vpc_azs
 
