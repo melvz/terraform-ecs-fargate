@@ -71,6 +71,7 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 ### Use Github Actions to execute Terraform commands :
 - Please find the actions file under .github folder.
 - Setup your own secrets and actions' env variables.
+- Customize the action steps as needed.  Use the TFplan as an example.
 
 ~
 
