@@ -1,0 +1,36 @@
+name: ci
+on:
+  push:
+    branches: 
+      - main
+
+#https://adamtheautomator.com/github-actions-environment-variables/
+#https://stackoverflow.com/questions/58643905/how-aws-credentials-works-at-github-actions
+env:
+  AWS_ACCESS_KEY_ID: ${{ }}
+  AWS_SECRET_ACCESS_KEY: ${{ }}
+  WORKSPACE_NAME: ecs-iteration-1
+  # Terraform Default Operation mode
+  TF_OPS: plan
+  # TF VPC Paths#
+  TF_VPC_ROOT_DIR: infra/aws_vpc
+  TF_VPC_WS_DIR: ${TF_VPC_ROOT_DIR}/workspace/${WORKSPACE_NAME}
+  TF_VPC_WS_VAR: ${TF_VPC_WS_DIR}/vpc.tfvars
+  TF_PLAN: ${TF_VPC_WS_DIR}-vpc.tfplan
+  TF_JSON: ${TF_VPC_WS_DIR}-vpc.json
+          
+jobs:
+  terraform-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: execute TERRAFORM PLAN
+        if: env.TF_OPS == 'plan'
+        
+        run: |
+          cd $TF_VPC_ROOT_DIR && ls -la && pwd
+          terraform init -backend-config="bucket=statebucket" -lock=false
+          terraform validate -json
+          terraform plan -lock=false -var-file=workspace/$WORKSPACE_NAME/vpc.tfvars
+      
