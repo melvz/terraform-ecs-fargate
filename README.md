@@ -66,6 +66,12 @@ terraform plan -lock=false -var-file=workspace/ecs-iteration-1/vpc.tfvars
 - Traffic from ALB will hit port 8080 into the ECS/Fargate service, which sits on private subnets.  
 - 
 ---
+
+
+### Use Github Actions to execute Terraform commands :
+- Please find the actions file under .github folder.
+- Setup your own secrets and actions' env variables.
+
 ~
 
 
