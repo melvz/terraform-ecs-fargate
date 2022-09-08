@@ -1,7 +1,9 @@
 # terraform-ecs-fargate
-- This is my personal project to demonstrate a simple NodeJS app, being instantiated using ECS-Fargate via Terraform.
-- I made a custom app to go above and beyond a simple 'hello-world'.
+- A fun side-project to demonstrate a simple NodeJS app, being instantiated using ECS-Fargate via Terraform executed by Github Actions.
 - I re-used a simple NodeJS app to have extra fun!  This custom image is defined in ECS/Fargate Container Definition:
+
+
+
 ```json
 container_definitions = <<DEFINITION
 [
@@ -22,6 +24,9 @@ container_definitions = <<DEFINITION
 DEFINITION
 //Thanks to my source:  https://github.com/bmorelli25/simple-nodejs-weather-app  
 ```
+
+
+
 
 - For exercise STEP1 -  I took the liberty to create my own custom NodeJS image, where I re-used some opensource components:
 ```bash
