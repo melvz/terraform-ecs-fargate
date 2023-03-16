@@ -62,6 +62,14 @@ resource "aws_security_group" "alb_sg" {
     description = format("Global %s service HTTP port Ingress Access", var.tag_project_name)
   }
 
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = format("Global %s service HTTPs port Ingress Access", var.tag_project_name)
+  }
+
   // Allow Global Outbound traffic
   egress {
     from_port   = 0
