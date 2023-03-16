@@ -45,7 +45,7 @@ resource "aws_ecs_service" "nodejsweatherapp_melvz" {
   name            = "nodejsweatherapp-melvz-service"
   cluster         = aws_ecs_cluster.nodejsweatherapp_melvz.id
   task_definition = aws_ecs_task_definition.nodejsweatherapp_melvz.arn
-  desired_count   = 2
+  desired_count   = 3
   launch_type     = "FARGATE"
 
   network_configuration {
