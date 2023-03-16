@@ -6,7 +6,7 @@ resource "aws_ecs_task_definition" "nodejsweatherapp_melvz" {
   family                   = "nodejsweatherapp-melvz-app"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = 1024
+  cpu                      = 2048
   memory                   = 2048
 
   container_definitions = <<DEFINITION
